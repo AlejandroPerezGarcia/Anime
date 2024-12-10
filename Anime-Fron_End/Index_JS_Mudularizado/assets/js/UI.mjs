@@ -1,11 +1,10 @@
 // Actualiza la tabla con los animes
 export function updateAnimeTable(animes) {
   const tableBody = document.getElementById('animeTable').getElementsByTagName('tbody')[0];
-  const tableBody2 = document.getElementById('animeTable2').getElementsByTagName('tbody')[0];
 
   // Limpiar las tablas
   tableBody.innerHTML = '';
-  tableBody2.innerHTML = '';
+
 
   // Agregar los animes a la tabla
   animes.forEach(anime => {
@@ -24,11 +23,29 @@ export function updateAnimeTable(animes) {
   });
 }
 
+// Actualiza la tabla con los animes por id
+export function updateAnimeTable2(animes) {
+  const tableBody = document.getElementById('animeTable2').getElementsByTagName('tbody')[0];
+  // Limpiar las tablas
+  tableBody.innerHTML = '';
+  // Agregar los animes a la tabla
+  animes.forEach(anime => {
+    const row = tableBody.insertRow();
+    row.innerHTML = `
+      <td>${anime.id}</td>
+      <td>${anime.nombre}</td>
+      <td>${anime.genero}</td>
+      <td>${anime.anio}</td>
+      <td>${anime.autor}</td>      
+    `;
+  });
+}
+
 // Muestra los detalles del anime en la tabla de búsqueda por ID
 export function showAnimeDetails(anime) {
-  const tableBody = document.getElementById('animeTable2').getElementsByTagName('tbody')[0];
-  tableBody.innerHTML = '';  // Limpiar la tabla
-  const row = tableBody.insertRow();
+  const tableBody2 = document.getElementById('animeTable2').getElementsByTagName('tbody')[0];
+  tableBody2.innerHTML = '';  // Limpiar la tabla
+  const row = tableBody2.insertRow();
   row.innerHTML = `
     <td>${anime.id}</td>
     <td>${anime.nombre}</td>

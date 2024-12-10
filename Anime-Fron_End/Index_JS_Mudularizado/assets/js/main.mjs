@@ -1,5 +1,5 @@
 import { fetchAnime, fetchAnimeById, createAnime, updateAnime, deleteAnime } from './consumoApi.mjs';
-import { updateAnimeTable, showAnimeDetails, clearForm, fillEditModal } from './UI.mjs';
+import { updateAnimeTable, showAnimeDetails, clearForm, fillEditModal, updateAnimeTable2 } from './UI.mjs';
 
 // Cargar la lista de animes cuando la página se cargue
 window.onload = () => {
@@ -17,7 +17,7 @@ document.getElementById('searchButton').addEventListener('click', async () => {
   const searchId = document.getElementById('searchId').value;
   if (searchId) {
     const anime = await fetchAnimeById(searchId);
-    updateAnimeTable([anime]);  // Muestra solo el anime encontrado
+    updateAnimeTable2([anime]);  // Muestra solo el anime encontrado
   } else {
     alert('Por favor, ingresa un ID válido.');
   }
